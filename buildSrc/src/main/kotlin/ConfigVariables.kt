@@ -14,11 +14,11 @@ object ConfigVariables {
     }
 
     object Debug : Values {
-        override val baseHost: String = "\"http://numbersapi.com\""
+        override val baseHost: String = "\"https://frontend-test-assignment-api.abz.agency/api/v1\""
         override val apiKey: String = "\"\""
     }
     object Release : Values {
-        override val baseHost: String = "\"http://numbersapi.com\""
+        override val baseHost: String = "\"https://frontend-test-assignment-api.abz.agency/api/v1\""
         override val apiKey: String = "\"\""
     }
 }

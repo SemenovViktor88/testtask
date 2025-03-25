@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "testtask"
 include(":app")
- 
+include(":data")
+include(":domain")

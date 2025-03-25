@@ -1,5 +1,5 @@
 object Android {
-    const val appId = "com.semenov.numbers"
+    const val appId = "com.semenov.testtask"
     const val compileSdk = 35
     const val minSdk = 26
     const val targetSdk = 35
