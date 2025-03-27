@@ -7,26 +7,30 @@ plugins {
 }
 
 android {
-    namespace = "com.semenov.testtask"
-    compileSdk = 35
+    namespace = Android.appId
+    compileSdk = Android.compileSdk
 
     defaultConfig {
-        applicationId = "com.semenov.testtask"
-        minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Android.appId
+        minSdk = Android.minSdk
+        targetSdk = Android.targetSdk
+        versionCode = Android.versionCode
+        versionName = Android.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled  = false
+            buildConfigField(ConfigVariables.Type.string, ConfigVariables.Names.baseHost, ConfigVariables.Debug.baseHost)
+            buildConfigField(ConfigVariables.Type.string, ConfigVariables.Names.apiKey, ConfigVariables.Debug.apiKey)
+        }
         release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            buildConfigField(ConfigVariables.Type.string, ConfigVariables.Names.baseHost, ConfigVariables.Release.baseHost)
+            buildConfigField(ConfigVariables.Type.string, ConfigVariables.Names.apiKey, ConfigVariables.Release.apiKey)
+            isMinifyEnabled  = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
@@ -38,10 +42,14 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
 dependencies {
+    implementation(project(Modules.domain))
+    implementation(project(Modules.data))
+
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
