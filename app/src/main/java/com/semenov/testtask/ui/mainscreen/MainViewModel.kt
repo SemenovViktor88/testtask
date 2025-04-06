@@ -1,4 +1,4 @@
-package com.semenov.testtask.ui.main
+package com.semenov.testtask.ui.mainscreen
 
 import android.app.Application
 import android.content.Context
