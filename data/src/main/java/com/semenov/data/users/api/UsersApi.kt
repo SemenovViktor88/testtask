@@ -17,7 +17,7 @@ interface UsersApi {
     suspend fun getUsers(
         @Query(Users.PAGE) page: Int,
         @Query(Users.COUNT) count: Int = 6
-    ): List<ApiPageUser>
+    ): ApiPageUser
 
     @GET(Users.USER_ID)
     suspend fun getUser(@Path(Users.ID) userId: Int): ApiUser
