@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,11 +18,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.semenov.testtask.ui.navgraph.Screen
 import com.semenov.testtask.ui.theme.black60
 import com.semenov.testtask.ui.theme.blue
+import com.semenov.testtask.ui.theme.nunitoSemiBold
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -31,7 +32,8 @@ fun BottomNavigationBar(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .navigationBarsPadding(),
+            .navigationBarsPadding()
+            .background(Color(0xFFF8F8F8)),
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
@@ -59,8 +61,7 @@ fun CustomNavItem(
     Row(
         modifier = Modifier
             .clickable { onClick() }
-            .padding(horizontal = 16.dp, vertical = 12.dp)
-            .background(Color(0xFFF8F8F8)),
+            .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
@@ -72,7 +73,8 @@ fun CustomNavItem(
         Text(
             text = label,
             color = textColor,
-            style = MaterialTheme.typography.labelLarge
+            fontFamily = nunitoSemiBold,
+            fontSize = 16.sp
         )
     }
 }

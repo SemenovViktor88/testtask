@@ -4,6 +4,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.semenov.testtask.ui.bottombar.BottomNavigationBar
@@ -20,6 +21,7 @@ fun MainScreen(mainViewModel: MainViewModel = hiltViewModel()) {
         NoInternetScreen {}
     } else {
         Scaffold(
+            containerColor = Color.White,
             bottomBar = { BottomNavigationBar(navController) }
         ) { paddingValues ->
             NavGraph(navController, paddingValues)
