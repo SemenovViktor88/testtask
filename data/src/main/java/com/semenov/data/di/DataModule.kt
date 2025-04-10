@@ -1,7 +1,9 @@
 package com.semenov.data.di
 
 import com.semenov.data.AppInfoProvider
+import com.semenov.data.users.UsersRepositoryImpl
 import com.semenov.data.users.api.UsersApi
+import com.semenov.domain.usersrepository.UsersRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +28,11 @@ object DataModule {
     @Singleton
     fun usersApi(retrofit: Retrofit): UsersApi {
         return retrofit.create(UsersApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUsersRepository(usersApi: UsersApi): UsersRepository {
+        return UsersRepositoryImpl(usersApi)
     }
 }

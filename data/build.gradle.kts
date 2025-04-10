@@ -19,6 +19,8 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.domain))
+
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 

@@ -16,7 +16,7 @@ interface UsersApi {
     @GET(Users.USERS)
     suspend fun getUsers(
         @Query(Users.PAGE) page: Int,
-        @Query(Users.COUNT) count: Int = 6
+        @Query(Users.COUNT) count: Int,
     ): ApiPageUser
 
     @GET(Users.USER_ID)
