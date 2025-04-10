@@ -15,13 +15,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -35,7 +32,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -133,25 +129,14 @@ fun UserItem(user: AppUser) {
             .padding(16.dp)
             .padding(vertical = 8.dp),
     ) {
-        if (user.photo.isNullOrBlank()) {
-            Icon(
-                imageVector = Icons.Default.Person,
-                contentDescription = "Default Avatar",
-                modifier = Modifier
-                    .size(50.dp)
-                    .clip(CircleShape),
-                tint = Color.Gray
-            )
-        } else {
-            AsyncImage(
-                model = user.photo,
-                contentDescription = "User Avatar",
-                modifier = Modifier
-                    .size(50.dp)
-                    .clip(CircleShape),
-                alignment = Alignment.TopCenter
-            )
-        }
+        AsyncImage(
+            model = user.photo,
+            contentDescription = "User Avatar",
+            modifier = Modifier
+                .size(50.dp)
+                .clip(CircleShape),
+            alignment = Alignment.TopCenter
+        )
         Spacer(modifier = Modifier.width(16.dp))
         Column {
             Text(
@@ -181,21 +166,4 @@ fun UserItem(user: AppUser) {
             )
         }
     }
-}
-
-@Preview(showSystemUi = true)
-@Composable
-fun ItemPreview(){
-    UserItem(
-        AppUser(
-            id = 123456,
-            name = "Viktor Semenov",
-            email = "viktor@gmail.com",
-            phone = "+380989831511",
-            position = "developer",
-            positionId = 1,
-            registrationTimestamp = 123456789,
-            photo = ""
-        )
-    )
 }
