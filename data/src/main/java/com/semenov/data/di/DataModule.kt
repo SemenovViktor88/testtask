@@ -1,8 +1,11 @@
 package com.semenov.data.di
 
 import com.semenov.data.AppInfoProvider
+import com.semenov.data.signup.api.SignUpApi
+import com.semenov.data.signup.SignUpRepositoryImpl
 import com.semenov.data.users.UsersRepositoryImpl
 import com.semenov.data.users.api.UsersApi
+import com.semenov.domain.signuprepository.SignUpRepository
 import com.semenov.domain.usersrepository.UsersRepository
 import dagger.Module
 import dagger.Provides
@@ -34,5 +37,17 @@ object DataModule {
     @Singleton
     fun provideUsersRepository(usersApi: UsersApi): UsersRepository {
         return UsersRepositoryImpl(usersApi)
+    }
+
+    @Provides
+    @Singleton
+    fun signUpApi(retrofit: Retrofit): SignUpApi {
+        return retrofit.create(SignUpApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSignUpRepository(signUpApi: SignUpApi): SignUpRepository {
+        return SignUpRepositoryImpl(signUpApi)
     }
 }

@@ -12,5 +12,8 @@ object ApiContract {
         const val ID = "id"
 
         const val POSITIONS = "positions"
+
+        const val TOKEN_HEADER = "Token"
+        const val TOKEN = "token"
     }
 }
