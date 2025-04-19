@@ -1,4 +1,4 @@
-package com.semenov.data.di
+package com.semenov.domain.di
 
 import dagger.Module
 import dagger.hilt.InstallIn

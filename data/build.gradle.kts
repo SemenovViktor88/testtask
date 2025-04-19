@@ -19,11 +19,14 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.domain))
+
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
 
     implementation(libs.androidx.core.ktx)
     testImplementation(libs.junit)

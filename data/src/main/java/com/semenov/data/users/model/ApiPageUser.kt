@@ -1,6 +1,9 @@
 package com.semenov.data.users.model
 
 import com.google.gson.annotations.SerializedName
+import com.semenov.domain.usersrepository.model.Links
+import com.semenov.domain.usersrepository.model.PageUser
+import com.semenov.domain.usersrepository.model.User
 
 data class ApiPageUser(
     @SerializedName("success") val success: Boolean,
@@ -18,12 +21,38 @@ data class ApiLinks(
 )
 
 data class ApiUser(
-    @SerializedName("id") var id: Int,
-    @SerializedName("name") var name: String,
-    @SerializedName("email") var email: String,
-    @SerializedName("phone") var phone: String,
-    @SerializedName("position") var position: String,
-    @SerializedName("position_id") var positionId: Int,
-    @SerializedName("registration_timestamp") var registrationTimestamp : Int,
-    @SerializedName("photo") var photo: String
+    @SerializedName("id") val id: Int,
+    @SerializedName("name") val name: String,
+    @SerializedName("email") val email: String,
+    @SerializedName("phone") val phone: String,
+    @SerializedName("position") val position: String,
+    @SerializedName("position_id") val positionId: Int,
+    @SerializedName("registration_timestamp") val registrationTimestamp : Int,
+    @SerializedName("photo") val photo: String
+)
+
+fun ApiPageUser.mapToDomain() = PageUser(
+    success = success,
+    totalPages = totalPages,
+    totalUsers = totalUsers,
+    count = count,
+    page = page,
+    links = links.mapToDomain(),
+    users = users.map { it.mapToDomain() }
+)
+
+fun ApiLinks.mapToDomain() = Links(
+    nextUrl = nextUrl,
+    prevUrl = prevUrl
+)
+
+fun ApiUser.mapToDomain() = User(
+    id = id,
+    name = name,
+    email = email,
+    phone = phone,
+    position = position,
+    positionId = positionId,
+    registrationTimestamp = registrationTimestamp,
+    photo = photo
 )

@@ -4,13 +4,16 @@ object ApiContract {
 
     object Users {
 
-        const val USERS = "/users"
+        const val USERS = "users"
         const val PAGE = "page"
         const val COUNT = "count"
 
         const val USER_ID = "$USERS/{id)"
         const val ID = "id"
 
-        const val POSITIONS = "/positions"
+        const val POSITIONS = "positions"
+
+        const val TOKEN_HEADER = "Token"
+        const val TOKEN = "token"
     }
 }
