@@ -3,5 +3,19 @@
     <string name="no_internet_connection">There is no internet connection</string>
     <string name="try_again">Try again</string>
     <string name="working_with_get_request">Working with GET request</string>
+    <string name="working_with_post_request">Working with POST request</string>
     <string name="there_are_no_users_yet">There are no users yet</string>
+    <string name="users">Users</string>
+    <string name="sign_up">Sign up</string>
+    <string name="select_your_position">Select your position</string>
+    <string name="your_name">Your name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="select_photo">Select photo</string>
+    <string name="upload_your_photo">Upload your photo</string>
+    <string name="photo_selected">Photo selected</string>
+    <string name="got_it">Got it</string>
+    <string name="error_uploading_photo">Error uploading photo</string>
+    <string name="the_photo_must_be_in_jpg_or_jpeg_format">The photo must be in JPG or JPEG format.</string>
+    <string name="the_photo_size_must_not_exceed_5mb">The photo size must not exceed 5MB</string>
 </resources>
