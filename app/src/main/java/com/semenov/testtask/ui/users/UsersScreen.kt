@@ -39,6 +39,7 @@ import coil3.compose.AsyncImage
 import com.semenov.testtask.R
 import com.semenov.testtask.model.AppUser
 import com.semenov.testtask.ui.theme.black60
+import com.semenov.testtask.ui.theme.blue
 import com.semenov.testtask.ui.theme.nunitoRegular
 import com.semenov.testtask.ui.theme.yellow
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -86,7 +87,7 @@ fun UsersScreen(viewModel: UsersViewModel = hiltViewModel()) {
         } else {
             Box(modifier = Modifier.fillMaxSize()) {
                 if (isInitialLoading && state.users.isEmpty()) {
-                    CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                    CircularProgressIndicator(modifier = Modifier.align(Alignment.Center), color = blue)
                 } else {
                     LazyColumn(
                         state = listState,
@@ -109,7 +110,7 @@ fun UsersScreen(viewModel: UsersViewModel = hiltViewModel()) {
                                         .padding(16.dp),
                                     contentAlignment = Alignment.Center
                                 ) {
-                                    CircularProgressIndicator()
+                                    CircularProgressIndicator(color = blue)
                                 }
                             }
                         }

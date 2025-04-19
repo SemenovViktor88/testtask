@@ -1,6 +1,7 @@
 package com.semenov.testtask.ui.navgraph
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -11,8 +12,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.semenov.testtask.R
-import com.semenov.testtask.ui.register.RegisterScreen
-import com.semenov.testtask.ui.register.RegisterViewModel
+import com.semenov.testtask.ui.signup.RegisterScreen
+import com.semenov.testtask.ui.signup.SignUpViewModel
 import com.semenov.testtask.ui.users.UsersScreen
 import com.semenov.testtask.ui.users.UsersViewModel
 
@@ -28,13 +29,13 @@ fun NavGraph(navController: NavController, paddingValues: PaddingValues) {
             UsersScreen(viewModel)
         }
         composable(Screen.Register.route) {
-            val viewModel: RegisterViewModel = hiltViewModel()
+            val viewModel: SignUpViewModel = hiltViewModel()
             RegisterScreen(viewModel)
         }
     }
 }
 
-sealed class Screen(val route: String, val title: String, @DrawableRes val icon: Int) {
-    data object Users : Screen("users", "Users", R.drawable.ic_users)
-    data object Register : Screen("register", "Sign up", R.drawable.ic_register)
+sealed class Screen(val route: String, @StringRes val title: Int, @DrawableRes val icon: Int) {
+    data object Users : Screen("users", R.string.users, R.drawable.ic_users)
+    data object Register : Screen("register", R.string.sign_up, R.drawable.ic_register)
 }
