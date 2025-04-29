@@ -20,6 +20,7 @@ Tools and solutions and tech-stack:
 * [Jetpack Compose](https://developer.android.com/jetpack/compose)
 * [Compose Navigation](https://developer.android.com/jetpack/compose/navigation)
 * [Coil](https://coil-kt.github.io/coil/compose/)
+* [SplashScreen](https://developer.android.com/develop/ui/views/launch/splash-screen)
 * A single-activity architecture
 * Architecture
     * `Clean Architecture`
@@ -46,6 +47,6 @@ testtask/
 
 ## 📸 Screenshots
 
-| List users  | Registration form | Error validate | Registration success |
-| ------------ | ----------------- | ---------------- | ---------------- |
-| ![](art/list_user) | ![](art/registration_form) | ![](art/error_validate) |![](art/registration_success) |
+| List users | Registration form | Error validate | Registration success |
+| ----------------- | ----------------- | ----------------- | ----------------- |
+| <img src="art/list_users.png" width="220"/> | <img src="art/registration_form.png" width="220"/> | <img src="art/error_validate.png" width="220"/> | <img src="art/success_registration.png" width="220"/>
